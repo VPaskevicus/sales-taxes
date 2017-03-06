@@ -1,19 +1,14 @@
-﻿using System;
-using SalesTaxes.Interfaces;
+﻿using SalesTaxes.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace SalesTaxes
 {
     class Program
     {
-        const string importedProductIdentifier = "imported";
-        const string priceIdentifier = "at";
-        const string triggerReceiptCreation = "-1";
+        private const string ImportedProductIdentifier = "imported";
+        private const string PriceIdentifier = "at";
+        private const string TriggerReceiptCreation = "-1";
 
         static void Main(string[] args)
         {
@@ -63,7 +58,7 @@ namespace SalesTaxes
             {
                 Console.Write("Enter product line or (-1 to print): ");
                 string productLine = Console.ReadLine();
-                if (productLine.Equals(triggerReceiptCreation))
+                if (productLine.Equals(TriggerReceiptCreation))
                 {
                     productsAdded = true;
                 }
@@ -84,14 +79,14 @@ namespace SalesTaxes
                             for (int i = 1; i < words.Length; i++)
                             {
                                 //determine if the product line includes "imported"
-                                if (words[i].Equals(importedProductIdentifier))
+                                if (words[i].Equals(ImportedProductIdentifier))
                                 {
                                     importedProduct = true;
                                 }
                                 else
                                 {
                                     //identify product price
-                                    if (words[i].Equals(priceIdentifier))
+                                    if (words[i].Equals(PriceIdentifier))
                                     {
                                         decimal.TryParse(words[i + 1], out productPrice);
                                         break;
@@ -112,14 +107,14 @@ namespace SalesTaxes
                             for (int i = 0; i < words.Length; i++)
                             {
                                 //determine if the product line includes "imported"
-                                if (words[i].Equals(importedProductIdentifier))
+                                if (words[i].Equals(ImportedProductIdentifier))
                                 {
                                     importedProduct = true;
                                 }
                                 else
                                 {
                                     //determine if the product line string include "imported"
-                                    if (words[i].Equals(priceIdentifier))
+                                    if (words[i].Equals(PriceIdentifier))
                                     {
                                         decimal.TryParse(words[i + 1], out productPrice);
                                         break;

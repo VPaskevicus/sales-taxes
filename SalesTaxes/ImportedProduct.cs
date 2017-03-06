@@ -8,7 +8,7 @@ namespace SalesTaxes
     /// </summary>
     public class ImportedProduct : Product, IProduct
     {
-        private ITaxRate _taxRate;
+        private readonly ITaxRate _taxRate;
 
         /// <summary>
         /// Constructor.

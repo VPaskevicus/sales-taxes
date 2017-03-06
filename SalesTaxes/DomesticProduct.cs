@@ -6,9 +6,9 @@ namespace SalesTaxes
     /// <summary>
     /// Domestic product.
     /// </summary>
-    public class DomesticProduct : Product,   IProduct
+    public class DomesticProduct : Product, IProduct
     {
-        private ITaxRate _taxRate;
+        private readonly ITaxRate _taxRate;
 
         /// <summary>
         /// Constructor.

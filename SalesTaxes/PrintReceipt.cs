@@ -10,7 +10,7 @@ namespace SalesTaxes
     {
         #region Fields
 
-        private IReceipt _receipt;
+        private readonly IReceipt _receipt;
 
         #endregion
 
