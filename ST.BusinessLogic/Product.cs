@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SalesTaxes
+﻿namespace ST.BusinessLogic
 {
     /// <summary>
     /// The product base class.
@@ -9,10 +7,8 @@ namespace SalesTaxes
     {
         #region Fields
 
-        private string _title;
         private decimal _price;
         private int _quantity;
-        private ProductType _productType;
         private decimal _productTax;
 
         #endregion
@@ -22,11 +18,7 @@ namespace SalesTaxes
         /// <summary>
         /// The title of the product.
         /// </summary>
-        public string Title
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
+        public string Title { get; set; }
 
         /// <summary>
         /// The product price.
@@ -49,11 +41,7 @@ namespace SalesTaxes
         /// <summary>
         /// The type of the product.
         /// </summary>
-        public ProductType ProductType
-        {
-            get { return _productType; }
-            set { _productType = value; }
-        }
+        public ProductType ProductType { get; set; }
 
         /// <summary>
         /// The tax applyed to the product.

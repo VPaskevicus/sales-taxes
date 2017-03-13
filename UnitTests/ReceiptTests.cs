@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SalesTaxes;
-using SalesTaxes.Interfaces;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ST.BusinessLogic;
+using ST.BusinessLogic.Interfaces;
 using System.Collections.Generic;
 
 namespace UnitTests
@@ -34,7 +33,7 @@ namespace UnitTests
 
             List<IProduct> listOfProducts = new List<IProduct>() {
                 new DomesticProduct("book", 12.49m, 1, ProductType.Book, taxRate),
-                new DomesticProduct("music CD", 14.99m, 1, ProductType.none, taxRate),
+                new DomesticProduct("music CD", 14.99m, 1, ProductType.None, taxRate),
                 new DomesticProduct("chocolate bar", 0.85m, 1, ProductType.Food, taxRate)
             };
 

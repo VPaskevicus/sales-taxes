@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SalesTaxes;
-using SalesTaxes.Interfaces;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ST.BusinessLogic;
+using ST.BusinessLogic.Interfaces;
 
 namespace UnitTests
 {
@@ -22,7 +21,7 @@ namespace UnitTests
             Assert.AreEqual("box of chocolates", product.Title);
             Assert.AreEqual(32.19m, product.Price);
             Assert.AreEqual(1, product.Quantity);
-            Assert.AreEqual(ProductType.none, product.ProductType);
+            Assert.AreEqual(ProductType.None, product.ProductType);
             Assert.AreEqual(0, product.ProductTax);
         }
 
@@ -64,7 +63,7 @@ namespace UnitTests
         {
             ITaxRate taxRate = new TaxRate(10, 5);
 
-            return new ImportedProduct("box of chocolates", 32.19m, 1, ProductType.none, taxRate);
+            return new ImportedProduct("box of chocolates", 32.19m, 1, ProductType.None, taxRate);
         }
     }
 }
