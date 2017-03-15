@@ -1,8 +1,7 @@
-﻿using SalesTaxes.Interfaces;
+﻿using ST.BusinessLogic.Interfaces;
 using System;
-using System.Linq;
 
-namespace SalesTaxes
+namespace ST.BusinessLogic
 {
     /// <summary>
     /// Tax calculation data logic.

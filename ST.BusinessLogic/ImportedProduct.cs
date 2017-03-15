@@ -1,7 +1,7 @@
-﻿using SalesTaxes.Interfaces;
+﻿using ST.BusinessLogic.Interfaces;
 using System;
 
-namespace SalesTaxes
+namespace ST.BusinessLogic
 {
     /// <summary>
     /// Imported product.

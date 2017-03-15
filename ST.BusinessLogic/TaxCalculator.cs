@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ST.BusinessLogic.Interfaces;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SalesTaxes
+namespace ST.BusinessLogic
 {
     /// <summary>
     /// Static tax calculator.
@@ -74,7 +72,7 @@ namespace SalesTaxes
                 case ProductType.MedicalProduct:
                     return false;
                 case ProductType.Perfume:
-                case ProductType.none:
+                case ProductType.None:
                     return true;
                 default: return true;
             }

@@ -1,4 +1,4 @@
-﻿namespace SalesTaxes
+﻿namespace ST.BusinessLogic.Interfaces
 {
     /// <summary>
     /// An interface that represents the product.
@@ -34,7 +34,7 @@
         /// Calculate product tax based on the price and type.
         /// </summary>
         void CalculateProductTax();
-        
+
         /// <summary>
         /// Print product data.
         /// </summary>

@@ -1,6 +1,6 @@
-﻿using SalesTaxes.Interfaces;
+﻿using ST.BusinessLogic.Interfaces;
 
-namespace SalesTaxes
+namespace ST.BusinessLogic
 {
     /// <summary>
     /// Class that represents the receipt.

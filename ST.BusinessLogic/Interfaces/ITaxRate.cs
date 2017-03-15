@@ -1,4 +1,4 @@
-﻿namespace SalesTaxes.Interfaces
+﻿namespace ST.BusinessLogic.Interfaces
 {
     public interface ITaxRate
     {

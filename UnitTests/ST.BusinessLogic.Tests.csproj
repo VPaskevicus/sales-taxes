@@ -6,8 +6,8 @@
     <ProjectGuid>{808957DC-426C-4B28-8EF2-4A2DE04D1E20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTests</RootNamespace>
-    <AssemblyName>UnitTests</AssemblyName>
+    <RootNamespace>ST.BusinessLogic.Tests</RootNamespace>
+    <AssemblyName>ST.BusinessLogic.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -57,9 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SalesTaxes\SalesTaxes.csproj">
-      <Project>{1f1d1926-297d-400d-95c7-9334b253dd1a}</Project>
-      <Name>SalesTaxes</Name>
+    <ProjectReference Include="..\ST.BusinessLogic\ST.BusinessLogic.csproj">
+      <Project>{a363403a-3c69-4504-89b3-48cd8425f376}</Project>
+      <Name>ST.BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

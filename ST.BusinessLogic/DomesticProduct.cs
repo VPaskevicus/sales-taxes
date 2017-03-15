@@ -1,7 +1,7 @@
-﻿using SalesTaxes.Interfaces;
-using System;
+﻿using System;
+using ST.BusinessLogic.Interfaces;
 
-namespace SalesTaxes
+namespace ST.BusinessLogic
 {
     /// <summary>
     /// Domestic product.

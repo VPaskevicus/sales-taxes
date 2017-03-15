@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SalesTaxes;
-using SalesTaxes.Interfaces;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ST.BusinessLogic;
+using ST.BusinessLogic.Interfaces;
 
 namespace UnitTests
 {
@@ -50,7 +49,7 @@ namespace UnitTests
             Assert.IsFalse(TaxCalculator.ApplyTaxCheck(ProductType.Book));
             Assert.IsFalse(TaxCalculator.ApplyTaxCheck(ProductType.Food));
             Assert.IsFalse(TaxCalculator.ApplyTaxCheck(ProductType.MedicalProduct));
-            Assert.IsTrue(TaxCalculator.ApplyTaxCheck(ProductType.none));
+            Assert.IsTrue(TaxCalculator.ApplyTaxCheck(ProductType.None));
             Assert.IsTrue(TaxCalculator.ApplyTaxCheck(ProductType.Perfume));
         }
 

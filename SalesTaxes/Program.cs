@@ -1,8 +1,9 @@
-﻿using SalesTaxes.Interfaces;
+﻿using ST.BusinessLogic;
+using ST.BusinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
 
-namespace SalesTaxes
+namespace ST.ConsoleApp
 {
     class Program
     {

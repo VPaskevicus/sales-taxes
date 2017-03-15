@@ -1,4 +1,4 @@
-﻿namespace SalesTaxes.Interfaces
+﻿namespace ST.BusinessLogic.Interfaces
 {
     /// <summary>
     /// An interface that represents the receipt.
