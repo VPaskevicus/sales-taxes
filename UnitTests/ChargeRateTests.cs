@@ -25,7 +25,7 @@ namespace ST.BusinessLogic.Tests
         /// Set tax rate to zero.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ChargeRate_SetTaxRateToZero_Fail()
         {
             var chargeRate = new ChargeRate(0, 5m);
@@ -35,7 +35,7 @@ namespace ST.BusinessLogic.Tests
         /// Set tax rate to negative value.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ChargeRate_SetNegativeTaxRate_Fail()
         {
             var chargeRate = new ChargeRate(-3.2m, 5m);
@@ -45,7 +45,7 @@ namespace ST.BusinessLogic.Tests
         /// Set import duty rate to zero.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ChargeRate_SetImportDutyRateToZero_Fail()
         {
             var chargeRate = new ChargeRate(12m, 0);
@@ -55,7 +55,7 @@ namespace ST.BusinessLogic.Tests
         /// Set import duty rate to negative value.
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ChargeRate_SetNegativeImportDutyRate_Fail()
         {
             var chargeRate = new ChargeRate(14.2m, -34.7m);
