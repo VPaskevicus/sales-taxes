@@ -25,7 +25,7 @@ namespace ST.BusinessLogic
             set
             {
                 if (!string.IsNullOrEmpty(value)) _title = value;
-                else throw new ArgumentException("The product title cannot be null or empty.");
+                else throw new ArgumentException($"The product title cannot be null or empty.");
             }
         }
 
@@ -37,10 +37,15 @@ namespace ST.BusinessLogic
             get { return _price; }
             set
             {
-                if (value >= 0) _price = value;
-                else throw new ArgumentException("The product price cannot be negative value.");
+                if (value >= 0) _price = Math.Truncate(100 * value) / 100;
+                else throw new ArgumentOutOfRangeException($"The product price cannot be negative value.");
             }
         }
+
+        /// <summary>
+        /// The total price based on the quantity.
+        /// </summary>
+        public decimal TotalPrice => Price * Quantity;
 
         /// <summary>
         /// The product quantity.
@@ -51,7 +56,7 @@ namespace ST.BusinessLogic
             set
             {
                 if (value > 0) _quantity = value;
-                else throw new ArgumentException("The product quantity cannot be zero or negative.");
+                else throw new ArgumentOutOfRangeException($"The product quantity cannot be zero or negative.");
             }
         }
 
@@ -69,10 +74,19 @@ namespace ST.BusinessLogic
             set
             {
                 if (value >= 0) _productTax = value;
-                else throw new ArgumentException("The product tax cannot be negative value.");
+                else throw new ArgumentOutOfRangeException($"The product tax cannot be negative value.");
             }
-
         }
+
+        /// <summary>
+        /// The product price including tax.
+        /// </summary>
+        public decimal PriceIncTax => ProductTax.HasValue ? Price + ProductTax.Value : Price;
+
+        /// <summary>
+        /// The total price including tax based on the quantity.
+        /// </summary>
+        public decimal TotalPriceIncTax => ProductTax.HasValue ? (Price + ProductTax.Value) * Quantity : Price * Quantity;
         #endregion
 
         #region Constructors

@@ -22,7 +22,7 @@ namespace ST.BusinessLogic
             set
             {
                 if (value > 0) _taxRate = value;
-                else throw new ArgumentException("The tax rate connot be negative value.");
+                else throw new ArgumentOutOfRangeException("The tax rate connot be negative value.");
             }
         }
 
@@ -35,7 +35,7 @@ namespace ST.BusinessLogic
             set
             {
                 if (value > 0) _importDutyRate = value;
-                else throw new ArgumentException("An import duty connot be negative value.");
+                else throw new ArgumentOutOfRangeException("An import duty connot be negative value.");
             }
         }
         #endregion

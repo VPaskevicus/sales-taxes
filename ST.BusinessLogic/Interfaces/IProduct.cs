@@ -6,7 +6,7 @@
     public interface IProduct
     {
         /// <summary>
-        /// The title of the product.
+        /// The product title.
         /// </summary>
         string Title { get; set; }
 
@@ -16,28 +16,33 @@
         decimal Price { get; set; }
 
         /// <summary>
+        /// The total price based on the quantity.
+        /// </summary>
+        decimal TotalPrice { get; }
+
+        /// <summary>
         /// The product quantity.
         /// </summary>
         int Quantity { get; set; }
 
         /// <summary>
-        /// The type of the product.
+        /// The product type.
         /// </summary>
         ProductType ProductType { get; set; }
 
         /// <summary>
-        /// The tax applyed to the product.
+        /// The product tax based on the price.
         /// </summary>
-        decimal ProductTax { get; set; }
+        decimal? ProductTax { get; set; }
 
         /// <summary>
-        /// Calculate product tax based on the price and type.
+        /// The product price including tax.
         /// </summary>
-        void CalculateProductTax();
+        decimal PriceIncTax { get; }
 
         /// <summary>
-        /// Print product data.
+        /// The total price including tax based on the quantity.
         /// </summary>
-        void Print();
+        decimal TotalPriceIncTax { get; }
     }
 }

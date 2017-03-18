@@ -1,56 +1,24 @@
-﻿using ST.BusinessLogic.Interfaces;
-using System;
-
-namespace ST.BusinessLogic
+﻿namespace ST.BusinessLogic
 {
     /// <summary>
-    /// Imported product.
+    /// An imported product.
     /// </summary>
-    public class ImportedProduct : Product, IProduct
+    public sealed class ImportedProduct : Product
     {
-        private readonly ITaxRate _taxRate;
+        public ImportedProduct()
+        {
+        }
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="title"></param>
-        /// <param name="price"></param>
-        /// <param name="quantity"></param>
-        /// <param name="productType"></param>
-        /// <param name="taxRate"></param>
-        public ImportedProduct(string title, decimal price, int quantity, ProductType productType, ITaxRate taxRate) : base(title, price, quantity, productType)
+        /// <param name="title">The product title.</param>
+        /// <param name="price">The product price.</param>
+        /// <param name="quantity">The product quantity.</param>
+        /// <param name="productType">The product type.</param>
+        public ImportedProduct(string title, decimal price, int quantity, ProductType productType)
+            : base(title, price, quantity, productType)
         {
-            _taxRate = taxRate;
-        }
-
-        /// <summary>
-        /// Calculate tax for imported ptoduct.
-        /// </summary>
-        public override void CalculateProductTax()
-        {
-            bool applyTax = TaxCalculator.ApplyTaxCheck(this.ProductType);
-
-            decimal calculatedProductTax;
-
-            if (applyTax)
-            {
-                calculatedProductTax = TaxCalculator.RoundTax(_taxRate.CalculateImportTax(this.Price) + _taxRate.CalculateBasicTax(this.Price));
-            }
-            else
-            {
-                calculatedProductTax = TaxCalculator.RoundTaxCeiling(_taxRate.CalculateImportTax(this.Price));
-            }
-
-            ProductTax = calculatedProductTax;
-        }
-
-        /// <summary>
-        /// Print product data.
-        /// </summary>
-        public override void Print()
-        {
-            decimal productPriceIncludingTax = TaxCalculator.CalculatePrice(Price, ProductTax, Quantity);
-            Console.WriteLine(string.Format($"{Quantity} imported {Title}: {productPriceIncludingTax:F2}"));
         }
     }
 }

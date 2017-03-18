@@ -10,5 +10,5 @@
         Food,
         MedicalProduct,
         Perfume
-    };
+    }
 }
