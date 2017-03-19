@@ -60,6 +60,10 @@
       <Project>{a363403a-3c69-4504-89b3-48cd8425f376}</Project>
       <Name>ST.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ST.Common\ST.Common.csproj">
+      <Project>{3C6633A1-CF27-4706-A907-E5B733BBA9A6}</Project>
+      <Name>ST.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
