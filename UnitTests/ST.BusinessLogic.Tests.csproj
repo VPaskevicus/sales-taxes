@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ImportedProductTests.cs" />
+    <Compile Include="ReceiptTests.cs" />
     <Compile Include="TaxCalculationLogicTests.cs" />
     <Compile Include="ProductTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
