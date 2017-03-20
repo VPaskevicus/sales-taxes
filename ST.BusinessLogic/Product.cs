@@ -1,5 +1,7 @@
 ﻿using ST.BusinessLogic.Interfaces;
+using ST.Common;
 using System;
+using System.Globalization;
 
 namespace ST.BusinessLogic
 {
@@ -21,11 +23,16 @@ namespace ST.BusinessLogic
         /// </summary>
         public string Title
         {
-            get { return _title; }
+            get
+            {
+                if (string.IsNullOrEmpty(_title))
+                    throw new ArgumentNullException(nameof(_title));
+                return _title;
+            }
             set
             {
                 if (!string.IsNullOrEmpty(value)) _title = value;
-                else throw new ArgumentException($"The product title cannot be null or empty.");
+                else throw new ArgumentNullException($"The product title cannot be null or empty.");
             }
         }
 
@@ -111,6 +118,13 @@ namespace ST.BusinessLogic
             Price = price;
             Quantity = quantity;
             ProductType = productType;
+        }
+        #endregion
+
+        #region Override
+        public override string ToString()
+        {
+            return $"{Quantity.ToString().PadRight(6)}{StringExtention.Truncate(Title, 20).PadRight(23)}{PriceIncTax.ToString(CultureInfo.CurrentCulture).PadLeft(8)}{TotalPriceIncTax.ToString(CultureInfo.InvariantCulture).PadLeft(10)}";
         }
         #endregion
     }
