@@ -5,6 +5,9 @@
     /// </summary>
     public sealed class ImportedProduct : Product
     {
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public ImportedProduct()
         {
         }

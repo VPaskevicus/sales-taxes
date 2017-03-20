@@ -63,7 +63,7 @@ namespace ST.BusinessLogic
             {
                 productTax += CalculatePercentage(chargeRate.ImportDutyRate, product.Price);
             }
-            return productTax;
+            return RoundTax(productTax);
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace ST.BusinessLogic
         }
 
         /// <summary>
-        /// Check product type to apply tax.
+        /// Apply tax based on product type.
         /// </summary>
         /// <param name="productType">The product type.</param>
         /// <returns></returns>

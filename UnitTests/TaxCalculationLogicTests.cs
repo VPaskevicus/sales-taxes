@@ -11,6 +11,9 @@ namespace ST.BusinessLogic.Tests
     [TestClass]
     public class TaxCalculationLogicTests
     {
+        /// <summary>
+        /// Attempt to pass list of products paremeter as null.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TaxCalculation_ProductParameterNull_Fail()
@@ -18,6 +21,9 @@ namespace ST.BusinessLogic.Tests
             TaxCalculationLogic.CalculateTax(null, new ChargeRate(10m, 5m));
         }
 
+        /// <summary>
+        /// Attempt to pass the product as null within the list of products paremeter.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TaxCalculation_ListOfProductParameterNull_Fail()
@@ -25,6 +31,9 @@ namespace ST.BusinessLogic.Tests
             TaxCalculationLogic.CalculateTax(new List<IProduct> { new Product(), null }, new ChargeRate(10m, 5m));
         }
 
+        /// <summary>
+        /// Attempt to list of products and charge rate paremeter as null.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TaxCalculation_ListOfProucts_ChargeRateParameterNull_Fail()
@@ -32,6 +41,9 @@ namespace ST.BusinessLogic.Tests
             TaxCalculationLogic.CalculateTax(new List<IProduct> { new Product(), new Product() }, null);
         }
 
+        /// <summary>
+        /// Attempt to a sigle product and charge rate paremeter as null.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TaxCalculation_SingleProduct_ChargeRateParameterNull_Fail()
@@ -53,7 +65,6 @@ namespace ST.BusinessLogic.Tests
                 new ImportedProduct("Box of apples", 3.56m, 3, ProductType.Food),
                 new ImportedProduct("3D Puzzle", 10m, 2, ProductType.None)
             };
-
             var chargeRate = new ChargeRate(12.06m, 5.2m);
 
             // Act
@@ -66,7 +77,7 @@ namespace ST.BusinessLogic.Tests
             Assert.AreEqual(0, listOfProductWithTax[0].ProductTax);
             Assert.AreEqual(3.5m, listOfProductWithTax[1].ProductTax);
             Assert.AreEqual(5.5m, listOfProductWithTax[2].ProductTax);
-            Assert.AreEqual(1.726m, listOfProductWithTax[3].ProductTax);
+            Assert.AreEqual(1.73m, listOfProductWithTax[3].ProductTax);
         }
 
         /// <summary>
@@ -83,7 +94,6 @@ namespace ST.BusinessLogic.Tests
                 new ImportedProduct("Box of apples", 3.56m, 3, ProductType.Food),
                 new ImportedProduct("3D Puzzle", 10m, 2, ProductType.None)
             };
-
             var chargeRate = new ChargeRate(12.06m, 5.2m);
 
             // Act
@@ -94,11 +104,14 @@ namespace ST.BusinessLogic.Tests
             // Assert
             Assert.AreEqual(4, listOfProductWithTax.Count);
             Assert.AreEqual(0, listOfProductWithTax[0].ProductTax);
-            Assert.AreEqual(5.184594m, listOfProductWithTax[1].ProductTax);
-            Assert.AreEqual(0.18512m, listOfProductWithTax[2].ProductTax);
-            Assert.AreEqual(1.726m, listOfProductWithTax[3].ProductTax);
+            Assert.AreEqual(5.18m, listOfProductWithTax[1].ProductTax);
+            Assert.AreEqual(0.19m, listOfProductWithTax[2].ProductTax);
+            Assert.AreEqual(1.73m, listOfProductWithTax[3].ProductTax);
         }
 
+        /// <summary>
+        /// Calculate percentage based on value.
+        /// </summary>
         [TestMethod]
         public void TaxCalculation_CalculatePercentage_PercentageValue()
         {
@@ -107,6 +120,9 @@ namespace ST.BusinessLogic.Tests
             Assert.AreEqual(1.36m, percentage);
         }
 
+        /// <summary>
+        /// Round value up to the nearest 0.05
+        /// </summary>
         [TestMethod]
         public void TaxCalculation_RoundTax_RoundedValue()
         {
@@ -117,6 +133,9 @@ namespace ST.BusinessLogic.Tests
             Assert.AreEqual(432.32m, value2);
         }
 
+        /// <summary>
+        /// Apply tax based on product type.
+        /// </summary>
         [TestMethod]
         public void TaxCalculation_ApplyTax()
         {
