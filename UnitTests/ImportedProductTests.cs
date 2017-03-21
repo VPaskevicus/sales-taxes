@@ -4,7 +4,7 @@ using ST.Common;
 namespace ST.BusinessLogic.Tests
 {
     /// <summary>
-    /// Test imported product class.
+    /// Test imported product class tests.
     /// </summary>
     [TestClass]
     public class ImportedProductTests

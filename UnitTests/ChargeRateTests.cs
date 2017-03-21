@@ -4,7 +4,7 @@ using System;
 namespace ST.BusinessLogic.Tests
 {
     /// <summary>
-    /// The charge rate class tests
+    /// The charge rate class tests.
     /// </summary>
     [TestClass]
     public class ChargeRateTests

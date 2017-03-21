@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace ST.BusinessLogic.Tests
 {
     /// <summary>
-    /// Tax calculation tests.
+    /// Tax calculation class tests.
     /// </summary>
     [TestClass]
     public class TaxCalculationLogicTests

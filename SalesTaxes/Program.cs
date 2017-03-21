@@ -14,19 +14,15 @@ namespace ST.ConsoleApp
         static void Main(string[] args)
         {
             //Create tax rate based on the user input
-            ITaxRate taxRate = CreateTaxRate();
+            ChargeRate chargeRate = CreatechargeRate();
 
-            if (taxRate != null)
+            if (chargeRate != null)
             {
                 try
                 {
-                    List<IProduct> listOfProducts = AddProductsBasedOnUserInput(taxRate);
+                    IList<IProduct> listOfProducts = AddProductsBasedOnUserInput(chargeRate);
 
-                    IReceipt receipt = CreateReceipt(listOfProducts);
-                    if (receipt != null)
-                    {
-                        PrintReceipt(receipt);
-                    }
+                    PrintReceipt.PrintReceiptWithCalculatedTax(listOfProducts, chargeRate);
                 }
 
                 catch (Exception)
@@ -44,7 +40,7 @@ namespace ST.ConsoleApp
             Console.ReadKey();
         }
 
-        private static List<IProduct> AddProductsBasedOnUserInput(ITaxRate taxRate)
+        private static List<IProduct> AddProductsBasedOnUserInput(ChargeRate chargeRate)
         {
             List<IProduct> listOfProducts = new List<IProduct>();
 
@@ -139,11 +135,11 @@ namespace ST.ConsoleApp
 
                         if (importedProduct)
                         {
-                            product = new ImportedProduct(string.Join(" ", productDescription), productPrice, productQuantity, (ProductType)productType, taxRate);
+                            product = new ImportedProduct(string.Join(" ", productDescription), productPrice, productQuantity, (ProductType)productType);
                         }
                         else
                         {
-                            product = new DomesticProduct(string.Join(" ", productDescription), productPrice, productQuantity, (ProductType)productType, taxRate);
+                            product = new Product(string.Join(" ", productDescription), productPrice, productQuantity, (ProductType)productType);
                         }
                         listOfProducts.Add(product);
 
@@ -159,28 +155,28 @@ namespace ST.ConsoleApp
             return listOfProducts;
         }
 
-        private static ITaxRate CreateTaxRate()
+        private static ChargeRate CreatechargeRate()
         {
-            bool taxRateCreated = false;
-            ITaxRate taxRate = null;
+            bool chargeRateCreated = false;
+            ChargeRate chargeRate = null;
 
-            while (taxRateCreated == false)
+            while (chargeRateCreated == false)
             {
                 try
                 {
                     Console.Write("Enter your basic tax rate (%): ");
 
-                    int basicTaxRate = int.Parse(Console.ReadLine());
+                    int basicchargeRate = int.Parse(Console.ReadLine());
 
 
                     Console.Write("Please enter your imported tax rate (%): ");
 
-                    int importedTaxRate = int.Parse(Console.ReadLine());
+                    int importedchargeRate = int.Parse(Console.ReadLine());
 
 
-                    taxRate = new TaxRate(basicTaxRate, importedTaxRate);
+                    chargeRate = new ChargeRate(basicchargeRate, importedchargeRate);
 
-                    taxRateCreated = true;
+                    chargeRateCreated = true;
                 }
                 catch (ArgumentOutOfRangeException ex)
                 {
@@ -196,7 +192,7 @@ namespace ST.ConsoleApp
                 }
             }
 
-            return taxRate;
+            return chargeRate;
         }
 
         private static int AskUserToSetProductType()
@@ -226,28 +222,5 @@ namespace ST.ConsoleApp
             }
             return productType;
         }
-
-        #region Create and print receipt
-
-        private static IReceipt CreateReceipt(List<IProduct> list)
-        {
-            if (list != null && list.Count > 0)
-            {
-                return new Receipt(list.ToArray());
-            }
-            return null;
-        }
-
-        private static void PrintReceipt(IReceipt receipt)
-        {
-            if (receipt != null && receipt.Products != null && receipt.SalesTaxes >= 0 && receipt.Subtotal >= 0)
-            {
-                IPrintReceipt printReceipt = new PrintReceipt(receipt);
-                printReceipt.Print();
-            }
-        }
-
-        #endregion
-
     }
 }

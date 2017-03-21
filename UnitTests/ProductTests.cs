@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace ST.BusinessLogic.Tests
 {
     /// <summary>
-    /// Test product class.
+    /// Test product class tests.
     /// </summary>
     [TestClass]
     public class ProductTests
