@@ -29,11 +29,7 @@ namespace ST.ConsoleApp
                 {
                     Console.WriteLine("--- WARNING --- Something went wrong!!!\n");
 
-                    //TODO: Error handling for:
-                    //  product line input
-                    //  product creation
-                    //  receipt creation
-                    //  receipt printing
+                    //TODO: Error handling for: product line input.
                 }
             }
 
