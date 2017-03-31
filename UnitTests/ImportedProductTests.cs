@@ -1,69 +1,37 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ST.BusinessLogic;
-using ST.BusinessLogic.Interfaces;
+using ST.Common;
 
-namespace UnitTests
+namespace ST.BusinessLogic.Tests
 {
     /// <summary>
-    /// Test Imported product.
+    /// Test imported product class tests.
     /// </summary>
     [TestClass]
     public class ImportedProductTests
     {
         /// <summary>
-        /// Test creation of imported product.
+        /// Imported product to string result.
         /// </summary>
         [TestMethod]
-        public void TestCreateImportedProduct()
+        public void Product_ImportedProductToString_Success()
         {
-            IProduct product = CreateImportedProduct();
+            // Arrange
+            var product = new ImportedProduct()
+            {
+                Title = "Chocolate 100g",
+                Price = 1.5m,
+                Quantity = 2,
+                ProductTax = 0.07m,
+                ProductType = ProductType.Food
+            };
+            var expected = "2 Chocolate 100g 1.57 3.14";
 
-            Assert.AreEqual("box of chocolates", product.Title);
-            Assert.AreEqual(32.19m, product.Price);
-            Assert.AreEqual(1, product.Quantity);
-            Assert.AreEqual(ProductType.None, product.ProductType);
-            Assert.AreEqual(0, product.ProductTax);
-        }
+            // Act
+            var result = product.ToString();
+            var normalizedResult = StringExtention.NormalizeWhitespace(result);
 
-        /// <summary>
-        /// Test tax calculation for imported product.
-        /// </summary>
-        [TestMethod]
-        public void TestImportedProductTaxCalculation()
-        {
-            IProduct product = CreateImportedProduct();
-
-            product.CalculateProductTax();
-            Assert.AreEqual(4.83m, product.ProductTax);
-        }
-
-        /// <summary>
-        /// Test tax calculation for imported product with different types.
-        /// </summary>
-        [TestMethod]
-        public void TestImportedProductTaxCalculation_TestTypes()
-        {
-            IProduct product = CreateImportedProduct();
-
-            product.ProductType = ProductType.Book;
-            product.CalculateProductTax();
-            Assert.AreEqual(1.65m, product.ProductTax);
-
-            product.ProductType = ProductType.Food;
-            product.CalculateProductTax();
-            Assert.AreEqual(1.65m, product.ProductTax);
-
-            product.ProductType = ProductType.MedicalProduct;
-            product.CalculateProductTax();
-            Assert.AreEqual(1.65m, product.ProductTax);
-        }
-
-
-        public IProduct CreateImportedProduct()
-        {
-            ITaxRate taxRate = new TaxRate(10, 5);
-
-            return new ImportedProduct("box of chocolates", 32.19m, 1, ProductType.None, taxRate);
+            // Assert
+            Assert.AreEqual(expected, normalizedResult);
         }
     }
 }
