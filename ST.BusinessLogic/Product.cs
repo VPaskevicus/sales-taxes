@@ -124,7 +124,8 @@ namespace ST.BusinessLogic
         #region Override
         public override string ToString()
         {
-            return $"{Quantity.ToString().PadRight(6)}{StringExtention.Truncate(Title, 20).PadRight(23)}{PriceIncTax.ToString(CultureInfo.CurrentCulture).PadLeft(8)}{TotalPriceIncTax.ToString(CultureInfo.InvariantCulture).PadLeft(10)}";
+            return $"{Quantity.ToString().PadRight(6)}{Title.Truncate(20).PadRight(23)}{PriceIncTax.ToString(CultureInfo.CurrentCulture).PadLeft(8)}{TotalPriceIncTax.ToString(CultureInfo.InvariantCulture).PadLeft(10)}";
+
         }
         #endregion
     }

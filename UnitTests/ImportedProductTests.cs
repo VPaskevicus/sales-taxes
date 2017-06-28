@@ -28,7 +28,7 @@ namespace ST.BusinessLogic.Tests
 
             // Act
             var result = product.ToString();
-            var normalizedResult = StringExtention.NormalizeWhitespace(result);
+            var normalizedResult = result.NormalizeWhitespace();
 
             // Assert
             Assert.AreEqual(expected, normalizedResult);
