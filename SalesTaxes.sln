@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.ConsoleApp", "SalesTaxes\ST.ConsoleApp.csproj", "{1F1D1926-297D-400D-95C7-9334B253DD1A}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.BusinessLogic", "ST.BusinessLogic\ST.BusinessLogic.csproj", "{A363403A-3C69-4504-89B3-48CD8425F376}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.Common", "ST.Common\ST.Common.csproj", "{3C6633A1-CF27-4706-A907-E5B733BBA9A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.Common.Tests", "ST.Common.Tests\ST.Common.Tests.csproj", "{D11BC30C-4540-4D7C-80AA-4C495F9FA9BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3C6633A1-CF27-4706-A907-E5B733BBA9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C6633A1-CF27-4706-A907-E5B733BBA9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C6633A1-CF27-4706-A907-E5B733BBA9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11BC30C-4540-4D7C-80AA-4C495F9FA9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11BC30C-4540-4D7C-80AA-4C495F9FA9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11BC30C-4540-4D7C-80AA-4C495F9FA9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11BC30C-4540-4D7C-80AA-4C495F9FA9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
